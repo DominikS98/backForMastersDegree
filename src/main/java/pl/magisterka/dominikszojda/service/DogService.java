@@ -3,5 +3,6 @@ package pl.magisterka.dominikszojda.service;
 import pl.magisterka.dominikszojda.entity.DogEntity;
 
 public interface DogService {
-    DogEntity addDog();
+
+    DogEntity createDog(DogEntity entity);
 }

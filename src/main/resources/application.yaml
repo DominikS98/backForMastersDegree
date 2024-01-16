@@ -1,1 +1,22 @@
 
+server:
+  port: 8080
+
+db:
+  host: localhost
+  port: 5432
+  name: mydb
+  user: example
+  pass: pass
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${db.host}:${db.port}/${db.name}
+    username: ${db.user}
+    password: ${db.pass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
