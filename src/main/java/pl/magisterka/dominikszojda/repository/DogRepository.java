@@ -19,6 +19,8 @@ public interface DogRepository extends CrudRepository<DogEntity, UUID>{
 
     Optional<DogEntity> findDogById(UUID UUID);
 
+     List<DogEntity> findDogByOwnerId(UUID ownerId);
+
 
 
 }

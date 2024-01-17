@@ -5,6 +5,7 @@ import org.mapstruct.ReportingPolicy;
 import pl.magisterka.dominikszojda.entity.DogEntity;
 import pl.magisterka.dominikszojda.request.DogCreateRequest;
 import pl.magisterka.dominikszojda.request.DogCreateRequestDto;
+import pl.magisterka.dominikszojda.request.DogOwnerCreateRequestDto;
 import pl.magisterka.dominikszojda.respons.DogResponse;
 import pl.magisterka.dominikszojda.respons.DogResponseDto;
 
