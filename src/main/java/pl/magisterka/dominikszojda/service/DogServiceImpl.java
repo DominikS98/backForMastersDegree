@@ -11,6 +11,7 @@ import pl.magisterka.dominikszojda.respons.DogResponse;
 import pl.magisterka.dominikszojda.respons.DogResponseDto;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +32,13 @@ public class DogServiceImpl implements DogService {
     @Override
     public List<DogEntity> getDogs() {
         return dogRepository.findAll();
+    }
+
+
+    @Override
+    public  DogResponseDto getDogById(UUID UUID){
+        return mapper.toResponse(dogRepository.findDogById(UUID).orElse(null));
+
     }
 
 }

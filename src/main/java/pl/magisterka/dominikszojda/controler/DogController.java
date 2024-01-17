@@ -11,6 +11,7 @@ import pl.magisterka.dominikszojda.respons.DogResponseDto;
 import pl.magisterka.dominikszojda.service.DogService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
@@ -36,6 +37,13 @@ public class DogController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body( responseEnt);
+    }
+
+    @GetMapping("/{UUID}")
+    public ResponseEntity<DogResponseDto> getDogs(@PathVariable UUID UUID) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body( dogService.getDogById(UUID));
     }
 
 }

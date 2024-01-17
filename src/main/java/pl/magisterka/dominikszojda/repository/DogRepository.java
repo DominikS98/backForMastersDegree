@@ -1,6 +1,5 @@
 package pl.magisterka.dominikszojda.repository;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pl.magisterka.dominikszojda.entity.DogEntity;
@@ -16,6 +15,9 @@ public interface DogRepository extends CrudRepository<DogEntity, UUID>{
 
 
     List<DogEntity> findAll();
+
+
+    Optional<DogEntity> findDogById(UUID UUID);
 
 
 
