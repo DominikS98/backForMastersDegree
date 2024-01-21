@@ -3,12 +3,10 @@ package pl.magisterka.dominikszojda.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.magisterka.dominikszojda.entity.DogEntity;
-import pl.magisterka.dominikszojda.mappers.DogMapper;
+import pl.magisterka.dominikszojda.mapper.DogMapper;
 import pl.magisterka.dominikszojda.repository.DogRepository;
-import pl.magisterka.dominikszojda.request.DogCreateRequest;
 import pl.magisterka.dominikszojda.request.DogCreateRequestDto;
-import pl.magisterka.dominikszojda.respons.DogResponse;
-import pl.magisterka.dominikszojda.respons.DogResponseDto;
+import pl.magisterka.dominikszojda.response.DogResponseDto;
 
 import java.util.List;
 import java.util.UUID;
@@ -36,9 +34,14 @@ public class DogServiceImpl implements DogService {
 
 
     @Override
-    public  DogResponseDto getDogById(UUID UUID){
-        return mapper.toResponse(dogRepository.findDogById(UUID).orElse(null));
+    public  DogResponseDto getDogById(UUID uuid){
+        return mapper.toResponse(dogRepository.findById(uuid).orElse(null));
 
+    }
+
+    @Override
+    public DogEntity assignDogToOwner(UUID dogId, UUID ownerId) {
+        return dogRepository.assignDogToOwner(dogId, ownerId);
     }
 
 }

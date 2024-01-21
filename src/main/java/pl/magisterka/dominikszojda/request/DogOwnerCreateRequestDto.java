@@ -10,7 +10,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DogOwnerCreateRequestDto {
-    private UUID id;
     private String name;
     private String surname;
     private String email;

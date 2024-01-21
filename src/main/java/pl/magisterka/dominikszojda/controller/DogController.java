@@ -1,13 +1,13 @@
-package pl.magisterka.dominikszojda.controler;
+package pl.magisterka.dominikszojda.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.magisterka.dominikszojda.entity.DogEntity;
-import pl.magisterka.dominikszojda.mappers.DogMapper;
+import pl.magisterka.dominikszojda.mapper.DogMapper;
 import pl.magisterka.dominikszojda.request.DogCreateRequestDto;
-import pl.magisterka.dominikszojda.respons.DogResponseDto;
+import pl.magisterka.dominikszojda.response.DogResponseDto;
 import pl.magisterka.dominikszojda.service.DogService;
 
 import java.util.List;
@@ -19,9 +19,8 @@ import java.util.UUID;
 public class DogController {
 
     private final DogService dogService;
-    private final DogMapper mapper;
 
-    @PostMapping("/add-dog")
+    @PostMapping("")
     public ResponseEntity<DogResponseDto> createDog(@RequestBody DogCreateRequestDto dogRequest) {
         DogResponseDto responseEnt = dogService.createDog(dogRequest);
 
@@ -40,10 +39,17 @@ public class DogController {
     }
 
     @GetMapping("/{UUID}")
-    public ResponseEntity<DogResponseDto> getDogs(@PathVariable UUID UUID) {
+    public ResponseEntity<DogResponseDto> getDogs(@PathVariable UUID uuid) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body( dogService.getDogById(UUID));
+                .body( dogService.getDogById(uuid));
+    }
+
+    @PostMapping("/{dogId}/owners/{ownerId}")
+    public ResponseEntity<DogEntity> assignDogToOwner(@PathVariable UUID dogId, @PathVariable UUID ownerId) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body( dogService.assignDogToOwner(dogId, ownerId));
     }
 
 }

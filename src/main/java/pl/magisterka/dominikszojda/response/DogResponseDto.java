@@ -1,4 +1,4 @@
-package pl.magisterka.dominikszojda.respons;
+package pl.magisterka.dominikszojda.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +13,5 @@ public class DogResponseDto {
         private String name;
         private String breed;
         private int age;
-
         private  UUID ownerId;
 }

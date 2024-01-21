@@ -13,11 +13,13 @@ public interface DogRepository extends CrudRepository<DogEntity, UUID>{
 
     Optional<DogEntity> findByNameAndAge(String name, int age);
 
+    DogEntity assignDogToOwner(UUID dogId, UUID ownerId);
+
 
     List<DogEntity> findAll();
 
 
-    Optional<DogEntity> findDogById(UUID UUID);
+    Optional<DogEntity> findById(UUID uuid);
 
      List<DogEntity> findDogByOwnerId(UUID ownerId);
 

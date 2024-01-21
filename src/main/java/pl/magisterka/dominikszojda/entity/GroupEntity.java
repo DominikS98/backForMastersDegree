@@ -8,23 +8,21 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
 @Entity
-@Table(name="dogs")
-public class DogEntity{
+@Table(name = "group")
+public class GroupEntity {
+    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column
-    private UUID id;
+    private String id;
     @Column
     private String name;
     @Column
-    private String breed;
+    private String description;
     @Column
-    private int age;
-    @JoinColumn(name = "owner_id")
-    private DogOwnerEntity owner;
+    private UUID DogShowId;
 }
