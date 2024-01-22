@@ -8,23 +8,31 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
 @Entity
-@Table(name="dogs")
-public class DogEntity{
+@Table(name = "dog_owner")
+public class DogOwnerEntity {
+    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column
     private UUID id;
     @Column
     private String name;
     @Column
-    private String breed;
+    private String surname;
     @Column
-    private int age;
-    @JoinColumn(name = "owner_id")
-    private DogOwnerEntity owner;
+    private String email;
+    @Column
+    private String phoneNumber;
+    @Column
+    private String address;
+    @Column
+    private String city;
+    @Column
+    private String postalCode;
+    @Column
+    private String country;
 }

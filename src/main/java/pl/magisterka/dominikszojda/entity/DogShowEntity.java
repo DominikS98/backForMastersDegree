@@ -6,25 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
+import java.sql.Timestamp;
 
 @AllArgsConstructor
-@Setter
-@Getter
 @NoArgsConstructor
 @Entity
-@Table(name="dogs")
-public class DogEntity{
+@Setter
+@Getter
+@Table(name = "dog_show")
+public class DogShowEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Column
     private String name;
     @Column
-    private String breed;
+    private String city;
     @Column
-    private int age;
-    @JoinColumn(name = "owner_id")
-    private DogOwnerEntity owner;
+    private String address;
+    @Column
+    private Timestamp date;
+
+
 }
